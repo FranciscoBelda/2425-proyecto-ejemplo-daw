@@ -1,0 +1,19 @@
+<button class="btn btn-outline-info" (click)="cambiarNombre()">Cambiar Nombre</button>
+<p>Nombre: {{nombre()}}</p>
+<p>Nombre Read Only: {{nombreReadOnly()}}</p>
+
+<hr>
+<button class="btn btn-outline-info" (click)="nuevoNumero()">Cambiar Numero</button>
+<p>Numero: {{numero()}}</p>
+<p>Computed: {{count()}}</p>
+<p>Doble: {{doubleCount()}}</p>
+
+<h2>Usuario</h2>
+<p>Nombre: {{usuario().nombre}}</p>
+<p>Email: {{usuario().email}}</p>
+<p>Estado: {{usuario().estado}}</p>
+<input type="text" [(ngModel)]="nombreForm">
+<input type="text" [(ngModel)]="emailForm">
+<input type="text" [(ngModel)]="estadoForm">
+
+<button class="btn btn-outline-success" (click)="crearUsuario()">CREAR</button>

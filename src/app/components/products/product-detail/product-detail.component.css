@@ -1,0 +1,9 @@
+
+/* Clase para centrar el spinner en la pantalla */
+.loading-container{
+  width: 100% !important;
+  height: 50vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

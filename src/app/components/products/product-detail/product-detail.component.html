@@ -1,0 +1,9 @@
+@if ( product){
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <app-detail-card [product]="product"/>
+    </div>
+  </div>
+} @else {
+  <app-spinner/>
+}

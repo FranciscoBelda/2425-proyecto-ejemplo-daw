@@ -1,0 +1,27 @@
+
+<!-- Empezamos protegiendo nuestra Aplicación para que solo renderice
+la información cuando tengamos información de la API -->
+@defer (when products.length>0 ){
+  <div class="row">
+    <div class="col-12 my-2">
+      <!-- Mostramos los elementos que tiene la API accediendo al array de productos -->
+      <h3 class="text-primary text-center border shadow-sm p-2 rounded-1">
+        Hay un total de {{ products.length }} productos en esta API
+      </h3>
+    </div>
+    <!-- Iteramos la colección de productos, para mostrar una tarjeta por cada
+    producto de la API -->
+    @for (product of products;track product.id){
+      <!-- En el objeto que iteramos, que tiene toda la información, añadimos un
+      routerLink, a la ruta definida
+      previamente, junto con el id del producto, que es único -->
+      <div class="col-xl-3 col-lg-4 col-sm-6 my-2"
+           [routerLink]="'/product/detail/'+product.id">
+        <app-product-card [product]="product"/>
+      </div>
+    }
+  </div>
+  <!-- Usamos un else para mostrar un Spinner mientras carga la información de la API -->
+} @placeholder (minimum 500ms) {
+<app-spinner/>
+}

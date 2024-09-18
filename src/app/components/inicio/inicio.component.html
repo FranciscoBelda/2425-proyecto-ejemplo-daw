@@ -1,0 +1,31 @@
+<h2>Bienvenido</h2>
+
+<p>
+  Número: {{numero}} | Nombre: {{nombre}} || Booleana: {{booleana}}
+</p>
+
+<p>
+  <b>Nombre:</b> {{objetoUsuario.nombre}}
+  <b>Edad:</b> {{objetoUsuario.edad}}
+  <b>Profesion:</b> {{objetoUsuario.profesion}}
+</p>
+
+<h2>Listados</h2>
+{{nombres}}
+{{numeros}}
+
+<h2>Lista de objetos</h2>
+<input type="text" placeholder="Nombre" [(ngModel)]="objetoUsuario.nombre">
+<input type="number" placeholder="Edad" [(ngModel)]="objetoUsuario.edad">
+<input type="text" placeholder="Profesión" [(ngModel)]="objetoUsuario.profesion">
+<button (click)="addUser(objetoUsuario)">Añadir</button>
+
+@if (usuarios.length>0){
+  <ul>
+    @for (usu of usuarios;track $index){
+      <li>Nombre: {{usu.nombre}} | Edad: {{usu.edad}} | Profesión: {{usu.profesion?usu.profesion:'-'}}</li>
+    }
+  </ul>
+} @else {
+  <h2>No hay elementos en la lista</h2>
+}

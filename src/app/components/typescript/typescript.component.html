@@ -1,0 +1,28 @@
+<h2>Ejercicio</h2>
+
+2 inputs - Tipo y Color (Circunferencia, Cuadrado...) (Rojo, verde...)
+Crear una interfaz de objeto Poliedro.
+Crear un array de poliedros.
+Si el array está vacío, mostrar mensaje de No hay poliedros.
+Si hay poliedros en el array, mostrarlos
+
+<p>
+
+  <input type="text" placeholder="Tipo" [(ngModel)]="poliedro.tipo">
+  <input type="color" placeholder="Color" [(ngModel)]="poliedro.color">
+  <button (click)="addPoliedro(poliedro)">Add Poli</button>
+</p>
+
+@if (poliedros.length===0){
+ <h2>No hay poliedros</h2>
+} @else {
+  @for (poli of poliedros;track $index;let last = $last){
+    <span>{{poli.tipo}} - {{poli.color}}</span>
+    @if (last){
+      <span>.</span>
+    } @else {
+      <span>, </span>
+    }
+  }
+
+}
